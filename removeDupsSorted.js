@@ -1,18 +1,17 @@
-let arr = [1, 2, 3, 4, 5, 5, 6, 6, 7];
-const removeDups = (arr) => {
-    let n = arr.length;
-    if (n == 0 || n == 1)
-        return n;
-    let j = 0;
-    for (let i = 0; i < n - 1; i++) {
-        if (arr[i] != arr[i + 1])
-            arr[j++] = arr[i];
+let arr = [2, 3, 3, 5, 5, 5, 7, 8, 8, 10];
+
+const removeDuplicates = (nums) => {
+    if (nums.length === 0) return 0;
+    let i = 0;
+    for (let j = 1; j < nums.length; j++) {
+        if (nums[j] !== nums[i]) { //  If the elements are not equal then copy the unique element by then to "i+1" position
+            nums[++i] = nums[j];
+        }
     }
-
-    arr[j++] = arr[n - 1];
-    return j;
+    return i + 1;
 }
-const result = removeDups(arr);
-console.log(result);
-console.log(arr.slice(0, result + 1));
+const result = removeDuplicates(arr);
 
+
+const newArr= arr.slice(0,result);
+console.log(arr.slice(0,result));
